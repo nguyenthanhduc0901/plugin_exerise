@@ -1,0 +1,34 @@
+identity:
+  name: "ingestion_plugin"
+  author: "ducthanhn"
+  label:
+    en_US: "ingestion_plugin"
+    zh_Hans: "ingestion_plugin"
+    pt_BR: "ingestion_plugin"
+    ja_JP: "ingestion_plugin"
+description:
+  human:
+    en_US: "Ingestion csv data to database"
+    zh_Hans: "Ingestion csv data to database"
+    pt_BR: "Ingestion csv data to database"
+    ja_JP: "Ingestion csv data to database"
+  llm: "Ingestion csv data to database"
+parameters:
+  - name: csv_file
+    type: file
+    required: true
+    label:
+      en_US: CSV File
+      zh_Hans: CSV文件
+      pt_BR: Arquivo CSV
+      ja_JP: CSVファイル
+    human_description:
+      en_US: "CSV file with columns: name, salary, address, gpa, school"
+      zh_Hans: "CSV文件包含列: name, salary, address, gpa, school"
+      pt_BR: "Arquivo CSV com colunas: name, salary, address, gpa, school"
+      ja_JP: "列を含むCSVファイル: name, salary, address, gpa, school"
+    llm_description: "CSV file with columns: name, salary, address, gpa, school"
+    form: form
+extra:
+  python:
+    source: tools/ingestion_plugin.py

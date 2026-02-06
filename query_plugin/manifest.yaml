@@ -1,0 +1,35 @@
+version: 0.0.1
+type: plugin
+author: ducthanhn
+name: query_plugin
+label:
+  en_US: query_plugin
+  ja_JP: query_plugin
+  zh_Hans: query_plugin
+  pt_BR: query_plugin
+description:
+  en_US: Query from database
+  ja_JP: Query from database
+  zh_Hans: Query from database
+  pt_BR: Query from database
+icon: icon.svg
+icon_dark: icon-dark.svg
+resource:
+  memory: 268435456
+  permission: {}
+plugins:
+  tools:
+    - provider/query_plugin.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: null
+created_at: 2026-02-05T15:37:35.1776999+07:00
+privacy: PRIVACY.md
+verified: false

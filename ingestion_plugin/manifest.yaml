@@ -1,0 +1,35 @@
+version: 0.0.1
+type: plugin
+author: ducthanhn
+name: ingestion_plugin
+label:
+  en_US: ingestion_plugin
+  ja_JP: ingestion_plugin
+  zh_Hans: ingestion_plugin
+  pt_BR: ingestion_plugin
+description:
+  en_US: Ingestion csv data to database
+  ja_JP: Ingestion csv data to database
+  zh_Hans: Ingestion csv data to database
+  pt_BR: Ingestion csv data to database
+icon: icon.svg
+icon_dark: icon-dark.svg
+resource:
+  memory: 268435456
+  permission: {}
+plugins:
+  tools:
+    - provider/ingestion_plugin.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: null
+created_at: 2026-02-05T15:14:55.3304987+07:00
+privacy: PRIVACY.md
+verified: false

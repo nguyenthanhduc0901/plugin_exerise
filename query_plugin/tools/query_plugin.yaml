@@ -1,0 +1,34 @@
+identity:
+  name: "query_plugin"
+  author: "ducthanhn"
+  label:
+    en_US: "query_plugin"
+    zh_Hans: "query_plugin"
+    pt_BR: "query_plugin"
+    ja_JP: "query_plugin"
+description:
+  human:
+    en_US: "Query from database"
+    zh_Hans: "Query from database"
+    pt_BR: "Query from database"
+    ja_JP: "Query from database"
+  llm: "Query from database"
+parameters:
+  - name: name
+    type: string
+    required: true
+    label:
+      en_US: Name
+      zh_Hans: 名字
+      pt_BR: Nome
+      ja_JP: 名前
+    human_description:
+      en_US: "Search by name (partial match, case-insensitive)"
+      zh_Hans: "按名字搜索（模糊匹配，不区分大小写）"
+      pt_BR: "Pesquisar por nome (correspondência parcial, sem distinção de maiúsculas/minúsculas)"
+      ja_JP: "名前で検索（部分一致、大文字小文字を区別しない）"
+    llm_description: "Search by name (partial match, case-insensitive)"
+    form: llm
+extra:
+  python:
+    source: tools/query_plugin.py
