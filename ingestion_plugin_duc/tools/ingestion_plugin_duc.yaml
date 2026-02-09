@@ -2,32 +2,20 @@ identity:
   name: "ingestion_plugin_duc"
   author: "ducthanhn"
   label:
-    en_US: "ingestion_plugin_duc"
-    zh_Hans: "ingestion_plugin_duc"
-    pt_BR: "ingestion_plugin_duc"
-    ja_JP: "ingestion_plugin_duc"
+    en_US: "CSV to PostgreSQL"
 description:
   human:
-    en_US: "Ingestion Plugin"
-    zh_Hans: "Ingestion Plugin"
-    pt_BR: "Ingestion Plugin"
-    ja_JP: "Ingestion Plugin"
-  llm: "Ingestion Plugin"
+    en_US: "Import CSV file to PostgreSQL database"
+  llm: "Import CSV file to PostgreSQL database table named employee"
 parameters:
-  - name: query
-    type: string
+  - name: csv_file
+    type: file
     required: true
     label:
-      en_US: Query string
-      zh_Hans: 查询语句
-      pt_BR: Query string
-      ja_JP: クエリ文字列
+      en_US: CSV File
     human_description:
-      en_US: "Ingestion Plugin"
-      zh_Hans: "Ingestion Plugin"
-      pt_BR: "Ingestion Plugin"
-      ja_JP: "Ingestion Plugin"
-    llm_description: "Ingestion Plugin"
+      en_US: "CSV file to import to database"
+    llm_description: "CSV file to import to database"
     form: llm
 extra:
   python:

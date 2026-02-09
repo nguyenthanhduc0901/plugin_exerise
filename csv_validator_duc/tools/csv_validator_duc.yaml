@@ -1,0 +1,34 @@
+identity:
+  name: "csv_validator_duc"
+  author: "ducthanhn"
+  label:
+    en_US: "csv_validator_duc"
+    zh_Hans: "csv_validator_duc"
+    pt_BR: "csv_validator_duc"
+    ja_JP: "csv_validator_duc"
+description:
+  human:
+    en_US: "CSV Validator "
+    zh_Hans: "CSV Validator "
+    pt_BR: "CSV Validator "
+    ja_JP: "CSV Validator "
+  llm: "CSV Validator "
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: Query string
+      zh_Hans: 查询语句
+      pt_BR: Query string
+      ja_JP: クエリ文字列
+    human_description:
+      en_US: "CSV Validator "
+      zh_Hans: "CSV Validator "
+      pt_BR: "CSV Validator "
+      ja_JP: "CSV Validator "
+    llm_description: "CSV Validator "
+    form: llm
+extra:
+  python:
+    source: tools/csv_validator_duc.py

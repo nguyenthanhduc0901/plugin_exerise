@@ -1,4 +1,4 @@
-## ingestion_plugin_duc
+## db_health_check_duc
 
 **Author:** ducthanhn
 **Version:** 0.0.1
