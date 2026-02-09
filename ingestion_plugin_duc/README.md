@@ -1,4 +1,4 @@
-## query_plugin
+## ingestion_plugin_duc
 
 **Author:** ducthanhn
 **Version:** 0.0.1

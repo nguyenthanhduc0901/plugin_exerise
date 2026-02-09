@@ -1,34 +1,73 @@
 identity:
-  name: "ingestion_plugin"
+  name: "ingestion_plugin1"
   author: "ducthanhn"
   label:
-    en_US: "ingestion_plugin"
-    zh_Hans: "ingestion_plugin"
-    pt_BR: "ingestion_plugin"
-    ja_JP: "ingestion_plugin"
+    en_US: "ingestion_plugin1"
 description:
   human:
-    en_US: "Ingestion csv data to database"
-    zh_Hans: "Ingestion csv data to database"
-    pt_BR: "Ingestion csv data to database"
-    ja_JP: "Ingestion csv data to database"
-  llm: "Ingestion csv data to database"
+    en_US: "Ingestion Plugin - Import CSV data into PostgreSQL"
+  llm: "Ingestion Plugin - Import CSV data into PostgreSQL"
 parameters:
+  - name: db_host
+    type: string
+    required: true
+    form: form
+    label:
+      en_US: "Database Host"
+    human_description:
+      en_US: "PostgreSQL host (e.g. 127.0.0.1)"
+    llm_description: "PostgreSQL host"
+
+  - name: db_port
+    type: number
+    required: true
+    form: form
+    label:
+      en_US: "Database Port"
+    human_description:
+      en_US: "PostgreSQL port (e.g. 5432 or 5433)"
+    llm_description: "PostgreSQL port"
+
+  - name: db_name
+    type: string
+    required: true
+    form: form
+    label:
+      en_US: "Database Name"
+    human_description:
+      en_US: "PostgreSQL database name"
+    llm_description: "PostgreSQL database name"
+
+  - name: db_user
+    type: string
+    required: true
+    form: form
+    label:
+      en_US: "Database User"
+    human_description:
+      en_US: "PostgreSQL username"
+    llm_description: "PostgreSQL username"
+
+  - name: db_password
+    type: secret-input
+    required: true
+    form: form
+    label:
+      en_US: "Database Password"
+    human_description:
+      en_US: "PostgreSQL password"
+    llm_description: "PostgreSQL password"
+
   - name: csv_file
     type: file
     required: true
-    label:
-      en_US: CSV File
-      zh_Hans: CSV文件
-      pt_BR: Arquivo CSV
-      ja_JP: CSVファイル
-    human_description:
-      en_US: "CSV file with columns: name, salary, address, gpa, school"
-      zh_Hans: "CSV文件包含列: name, salary, address, gpa, school"
-      pt_BR: "Arquivo CSV com colunas: name, salary, address, gpa, school"
-      ja_JP: "列を含むCSVファイル: name, salary, address, gpa, school"
-    llm_description: "CSV file with columns: name, salary, address, gpa, school"
     form: form
+    label:
+      en_US: "CSV File"
+    human_description:
+      en_US: "CSV file to ingest; must contain columns: name, salary, address, gpa, school"
+    llm_description: "CSV file to ingest; must contain columns: name, salary, address, gpa, school"
+
 extra:
   python:
     source: tools/ingestion_plugin.py

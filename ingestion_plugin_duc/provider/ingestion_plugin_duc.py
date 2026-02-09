@@ -1,29 +1,18 @@
 from typing import Any
-import psycopg2
 
 from dify_plugin import ToolProvider
 from dify_plugin.errors.tool import ToolProviderCredentialValidationError
 
 
-class QueryPluginProvider(ToolProvider):
+class IngestionPluginDucProvider(ToolProvider):
     
     def _validate_credentials(self, credentials: dict[str, Any]) -> None:
         try:
-            required_fields = ['db_host', 'db_port', 'db_name', 'db_user', 'db_password']
-            for field in required_fields:
-                if field not in credentials or not credentials[field]:
-                    raise ValueError(f'Missing: {field}')
-            
-            conn = psycopg2.connect(
-                host=credentials.get('db_host'),
-                port=int(credentials.get('db_port')),
-                database=credentials.get('db_name'),
-                user=credentials.get('db_user'),
-                password=credentials.get('db_password')
-            )
-            conn.close()
+            """
+            IMPLEMENT YOUR VALIDATION HERE
+            """
         except Exception as e:
-            raise ToolProviderCredentialValidationError(f'PostgreSQL error: {str(e)}')
+            raise ToolProviderCredentialValidationError(str(e))
 
     #########################################################################################
     # If OAuth is supported, uncomment the following functions.
@@ -31,7 +20,7 @@ class QueryPluginProvider(ToolProvider):
     #########################################################################################
     # def _oauth_get_authorization_url(self, redirect_uri: str, system_credentials: Mapping[str, Any]) -> str:
     #     """
-    #     Generate the authorization URL for query_plugin OAuth.
+    #     Generate the authorization URL for ingestion_plugin_duc OAuth.
     #     """
     #     try:
     #         """

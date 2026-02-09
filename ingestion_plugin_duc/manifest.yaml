@@ -1,17 +1,17 @@
 version: 0.0.1
 type: plugin
 author: ducthanhn
-name: query_plugin
+name: ingestion_plugin_duc
 label:
-  en_US: query_plugin
-  ja_JP: query_plugin
-  zh_Hans: query_plugin
-  pt_BR: query_plugin
+  en_US: ingestion_plugin_duc
+  ja_JP: ingestion_plugin_duc
+  zh_Hans: ingestion_plugin_duc
+  pt_BR: ingestion_plugin_duc
 description:
-  en_US: Query from database
-  ja_JP: Query from database
-  zh_Hans: Query from database
-  pt_BR: Query from database
+  en_US: Ingestion Plugin
+  ja_JP: Ingestion Plugin
+  zh_Hans: Ingestion Plugin
+  pt_BR: Ingestion Plugin
 icon: icon.svg
 icon_dark: icon-dark.svg
 resource:
@@ -19,7 +19,7 @@ resource:
   permission: {}
 plugins:
   tools:
-    - provider/query_plugin.yaml
+    - provider/ingestion_plugin_duc.yaml
 meta:
   version: 0.0.1
   arch:
@@ -30,6 +30,6 @@ meta:
     version: "3.12"
     entrypoint: main
   minimum_dify_version: null
-created_at: 2026-02-05T15:37:35.1776999+07:00
+created_at: 2026-02-09T09:25:42.8475728+07:00
 privacy: PRIVACY.md
 verified: false

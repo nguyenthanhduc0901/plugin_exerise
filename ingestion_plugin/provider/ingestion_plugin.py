@@ -1,4 +1,5 @@
-from typing import Any
+# provider/ingestion_plugin.py
+from typing import Any, Dict
 import psycopg2
 
 from dify_plugin import ToolProvider
@@ -6,59 +7,29 @@ from dify_plugin.errors.tool import ToolProviderCredentialValidationError
 
 
 class IngestionPluginProvider(ToolProvider):
-    
-    def _validate_credentials(self, credentials: dict[str, Any]) -> None:
+
+    def _validate_credentials(self, credentials: Dict[str, Any]) -> None:
+        """
+        Validate credential dict contains required DB fields and can connect.
+        Expected keys: db_host, db_port, db_name, db_user, db_password
+        """
         try:
-            required_fields = ['db_host', 'db_port', 'db_name', 'db_user', 'db_password']
-            for field in required_fields:
-                if field not in credentials or not credentials[field]:
-                    raise ValueError(f'Missing: {field}')
-            
+            required = ["db_host", "db_port", "db_name", "db_user", "db_password"]
+            for k in required:
+                if k not in credentials or credentials[k] in (None, ""):
+                    raise ValueError(f"Missing credential: {k}")
+
+            # Try a short DB connection to validate credentials
             conn = psycopg2.connect(
-                host=credentials.get('db_host'),
-                port=int(credentials.get('db_port')),
-                database=credentials.get('db_name'),
-                user=credentials.get('db_user'),
-                password=credentials.get('db_password')
+                host=credentials["db_host"],
+                port=int(credentials["db_port"]),
+                dbname=credentials["db_name"],
+                user=credentials["db_user"],
+                password=credentials["db_password"],
+                connect_timeout=5
             )
             conn.close()
+
         except Exception as e:
-            raise ToolProviderCredentialValidationError(f'PostgreSQL error: {str(e)}')
-
-    #########################################################################################
-    # If OAuth is supported, uncomment the following functions.
-    # Warning: please make sure that the sdk version is 0.4.2 or higher.
-    #########################################################################################
-    # def _oauth_get_authorization_url(self, redirect_uri: str, system_credentials: Mapping[str, Any]) -> str:
-    #     """
-    #     Generate the authorization URL for ingestion_plugin OAuth.
-    #     """
-    #     try:
-    #         """
-    #         IMPLEMENT YOUR AUTHORIZATION URL GENERATION HERE
-    #         """
-    #     except Exception as e:
-    #         raise ToolProviderOAuthError(str(e))
-    #     return ""
-        
-    # def _oauth_get_credentials(
-    #     self, redirect_uri: str, system_credentials: Mapping[str, Any], request: Request
-    # ) -> Mapping[str, Any]:
-    #     """
-    #     Exchange code for access_token.
-    #     """
-    #     try:
-    #         """
-    #         IMPLEMENT YOUR CREDENTIALS EXCHANGE HERE
-    #         """
-    #     except Exception as e:
-    #         raise ToolProviderOAuthError(str(e))
-    #     return dict()
-
-    # def _oauth_refresh_credentials(
-    #     self, redirect_uri: str, system_credentials: Mapping[str, Any], credentials: Mapping[str, Any]
-    # ) -> OAuthCredentials:
-    #     """
-    #     Refresh the credentials
-    #     """
-    #     return OAuthCredentials(credentials=credentials, expires_at=-1)
+            # Wrap in ToolProviderCredentialValidationError so Dify shows proper error
+            raise ToolProviderCredentialValidationError(str(e))

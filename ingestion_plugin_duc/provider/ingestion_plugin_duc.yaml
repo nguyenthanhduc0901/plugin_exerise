@@ -1,16 +1,16 @@
 identity:
   author: "ducthanhn"
-  name: "query_plugin"
+  name: "ingestion_plugin_duc"
   label:
-    en_US: "query_plugin"
-    zh_Hans: "query_plugin"
-    pt_BR: "query_plugin"
-    ja_JP: "query_plugin"
+    en_US: "ingestion_plugin_duc"
+    zh_Hans: "ingestion_plugin_duc"
+    pt_BR: "ingestion_plugin_duc"
+    ja_JP: "ingestion_plugin_duc"
   description:
-    en_US: "Query from database"
-    zh_Hans: "Query from database"
-    pt_BR: "Query from database"
-    ja_JP: "Query from database"
+    en_US: "Ingestion Plugin"
+    zh_Hans: "Ingestion Plugin"
+    pt_BR: "Ingestion Plugin"
+    ja_JP: "Ingestion Plugin"
   icon: "icon.svg"
 
 #########################################################################################
@@ -56,7 +56,7 @@ identity:
 #         en_US: "Access Token"
 
 tools:
-  - tools/query_plugin.yaml
+  - tools/ingestion_plugin_duc.yaml
 extra:
   python:
-    source: provider/query_plugin.py
+    source: provider/ingestion_plugin_duc.py
