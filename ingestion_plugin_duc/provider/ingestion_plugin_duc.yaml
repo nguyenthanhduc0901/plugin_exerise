@@ -7,43 +7,6 @@ identity:
     en_US: "Ingestion CSV data to PostgreSQL database"
   icon: "icon.svg"
 
-credentials_for_provider:
-  host:
-    type: "text-input"
-    required: true
-    label:
-      en_US: "Database Host"
-    placeholder:
-      en_US: "localhost"
-  port:
-    type: "text-input"
-    required: true
-    label:
-      en_US: "Database Port"
-    placeholder:
-      en_US: "5432"
-  dbname:
-    type: "text-input"
-    required: true
-    label:
-      en_US: "Database Name"
-    placeholder:
-      en_US: "mydb"
-  user:
-    type: "text-input"
-    required: true
-    label:
-      en_US: "Database User"
-    placeholder:
-      en_US: "postgres"
-  password:
-    type: "secret-input"
-    required: true
-    label:
-      en_US: "Database Password"
-    placeholder:
-      en_US: "Enter your password"
-
 tools:
   - tools/ingestion_plugin_duc.yaml
 extra:

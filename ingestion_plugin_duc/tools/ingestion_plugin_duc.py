@@ -13,12 +13,13 @@ class IngestionPluginDucTool(Tool):
         try:
             csv_file = tool_parameters.get("csv_file")
             
-            credentials = self.runtime.credentials
-            host = credentials.get("host")
-            port = credentials.get("port")
-            dbname = credentials.get("dbname")
-            user = credentials.get("user")
-            password = credentials.get("password")
+            # Get database credentials from db_config object (passed from db_health_check)
+            db_config = tool_parameters.get("db_config", {})
+            host = db_config.get("host")
+            port = int(db_config.get("port", 5432))
+            dbname = db_config.get("dbname")
+            user = db_config.get("user")
+            password = db_config.get("password")
             
             csv_content = csv_file.blob
             df = pd.read_csv(BytesIO(csv_content))
@@ -59,12 +60,8 @@ class IngestionPluginDucTool(Tool):
             cursor.close()
             conn.close()
             
-            yield self.create_json_message({
-                "status": "success",
-                "message": f"Successfully imported {rows_inserted} rows to employee table",
-                "rows_inserted": rows_inserted,
-                "table_name": "employee"
-            })
+            message = f"Successfully imported {rows_inserted} rows to employee table"
+            yield self.create_text_message(message)
             
         except Exception as e:
             yield self.create_text_message(f"Error: {str(e)}")

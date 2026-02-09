@@ -1,0 +1,45 @@
+identity:
+  name: "query_db_duc"
+  author: "ducthanhn"
+  label:
+    en_US: "Query Database"
+description:
+  human:
+    en_US: "Execute SQL query on PostgreSQL database"
+  llm: "Execute SQL query on PostgreSQL database and return results"
+parameters:
+  - name: query
+    type: string
+    required: true
+    label:
+      en_US: "SQL Query"
+    human_description:
+      en_US: "SQL query in JSON format with 'sql' field from LLM"
+    form: llm
+  - name: db_config
+    type: object
+    required: true
+    label:
+      en_US: "Database Config"
+    human_description:
+      en_US: "Database configuration object from health check"
+    form: llm
+output_schema:
+  type: object
+  properties:
+    rows:
+      type: array
+      description: "Query result rows as list of objects"
+      items:
+        type: object
+    row_count:
+      type: number
+      description: "Number of rows returned"
+    columns:
+      type: array
+      description: "Column names from query result"
+      items:
+        type: string
+extra:
+  python:
+    source: tools/query_db_duc.py

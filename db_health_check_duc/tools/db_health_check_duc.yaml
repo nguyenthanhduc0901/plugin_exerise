@@ -2,33 +2,87 @@ identity:
   name: "db_health_check_duc"
   author: "ducthanhn"
   label:
-    en_US: "db_health_check_duc"
-    zh_Hans: "db_health_check_duc"
-    pt_BR: "db_health_check_duc"
-    ja_JP: "db_health_check_duc"
+    en_US: "Database Health Check"
 description:
   human:
-    en_US: "Database Health Check"
-    zh_Hans: "Database Health Check"
-    pt_BR: "Database Health Check"
-    ja_JP: "Database Health Check"
-  llm: "Database Health Check"
+    en_US: "Check database connection and health status"
+  llm: "Check PostgreSQL database connection and health status"
 parameters:
-  - name: query
+  - name: host
     type: string
     required: true
     label:
-      en_US: Query string
-      zh_Hans: 查询语句
-      pt_BR: Query string
-      ja_JP: クエリ文字列
+      en_US: "Database Host"
     human_description:
-      en_US: "Database Health Check"
-      zh_Hans: "Database Health Check"
-      pt_BR: "Database Health Check"
-      ja_JP: "Database Health Check"
-    llm_description: "Database Health Check"
+      en_US: "PostgreSQL database host address"
+    placeholder:
+      en_US: "localhost"
     form: llm
+  - name: port
+    type: string
+    required: true
+    label:
+      en_US: "Database Port"
+    human_description:
+      en_US: "PostgreSQL database port number"
+    placeholder:
+      en_US: "5432"
+    form: llm
+  - name: dbname
+    type: string
+    required: true
+    label:
+      en_US: "Database Name"
+    human_description:
+      en_US: "PostgreSQL database name"
+    placeholder:
+      en_US: "mydb"
+    form: llm
+  - name: user
+    type: string
+    required: true
+    label:
+      en_US: "Database User"
+    human_description:
+      en_US: "PostgreSQL database username"
+    placeholder:
+      en_US: "postgres"
+    form: llm
+  - name: password
+    type: secret-input
+    required: true
+    label:
+      en_US: "Database Password"
+    human_description:
+      en_US: "PostgreSQL database password"
+    placeholder:
+      en_US: "Enter your password"
+    form: llm
+output_schema:
+  type: object
+  properties:
+    healthy:
+      type: string
+      description: "Whether the database is healthy and reachable"
+    db_config:
+      type: object
+      description: "Database connection configuration"
+      properties:
+        host:
+          type: string
+          description: "Database host address"
+        port:
+          type: number
+          description: "Database port number"
+        dbname:
+          type: string
+          description: "Database name"
+        user:
+          type: string
+          description: "Database username"
+        password:
+          type: string
+          description: "Database password"
 extra:
   python:
     source: tools/db_health_check_duc.py

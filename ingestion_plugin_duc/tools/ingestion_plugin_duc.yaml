@@ -17,6 +17,14 @@ parameters:
       en_US: "CSV file to import to database"
     llm_description: "CSV file to import to database"
     form: llm
+  - name: db_config
+    type: object
+    required: true
+    label:
+      en_US: "Database Config"
+    human_description:
+      en_US: "Database configuration object from health check"
+    form: llm
 extra:
   python:
     source: tools/ingestion_plugin_duc.py
