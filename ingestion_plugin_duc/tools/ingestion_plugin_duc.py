@@ -50,11 +50,25 @@ class IngestionPluginDucTool(Tool):
             rows_inserted = 0
             for _, row in df.iterrows():
                 values = [str(v) if pd.notna(v) else None for v in row]
-                placeholders = ', '.join(['%s'] * len(values))
-                column_names = ', '.join([f'"{col}"' for col in df.columns])
-                insert_query = f'INSERT INTO employee ({column_names}) VALUES ({placeholders})'
-                cursor.execute(insert_query, values)
-                rows_inserted += 1
+                
+                # Check if row already exists before inserting
+                where_conditions = []
+                check_values = []
+                for i, col in enumerate(df.columns):
+                    where_conditions.append(f'"{col}" = %s')
+                    check_values.append(values[i])
+                
+                where_clause = ' AND '.join(where_conditions)
+                check_query = f'SELECT 1 FROM employee WHERE {where_clause}'
+                
+                cursor.execute(check_query, check_values)
+                if cursor.fetchone() is None:
+                    # Row doesn't exist, so insert it
+                    placeholders = ', '.join(['%s'] * len(values))
+                    column_names = ', '.join([f'"{col}"' for col in df.columns])
+                    insert_query = f'INSERT INTO employee ({column_names}) VALUES ({placeholders})'
+                    cursor.execute(insert_query, values)
+                    rows_inserted += 1
             
             conn.commit()
             cursor.close()

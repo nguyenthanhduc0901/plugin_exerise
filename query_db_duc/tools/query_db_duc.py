@@ -57,12 +57,8 @@ class QueryDbDucTool(Tool):
             for row in rows:
                 results.append(dict(zip(columns, row)))
             
-            # Return results as JSON
-            yield self.create_json_message({
-                "rows": results,
-                "row_count": len(results),
-                "columns": columns
-            })
+            # Return results as text
+            yield self.create_text_message(json.dumps(results, indent=2, ensure_ascii=False))
             
         except json.JSONDecodeError as e:
             yield self.create_text_message(f"Error parsing query JSON: {str(e)}")
