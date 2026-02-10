@@ -1,0 +1,41 @@
+identity:
+  name: "uc03_empty_file_check"
+  author: "ducthanhn"
+  label:
+    en_US: "uc03_empty_file_check"
+    zh_Hans: "uc03_empty_file_check"
+    pt_BR: "uc03_empty_file_check"
+    ja_JP: "uc03_empty_file_check"
+description:
+  human:
+    en_US: "Check if XLS/XLSX file is empty and return check_empty"
+    zh_Hans: "Check if XLS/XLSX file is empty and return check_empty"
+    pt_BR: "Check if XLS/XLSX file is empty and return check_empty"
+    ja_JP: "Check if XLS/XLSX file is empty and return check_empty"
+  llm: "Check if XLS/XLSX file is empty; return check_empty=true/false"
+parameters:
+  - name: file_inputs
+    type: file
+    required: true
+    label:
+      en_US: uc03_empty_file_check
+      zh_Hans: uc03_empty_file_check
+      pt_BR: uc03_empty_file_check
+      ja_JP: uc03_empty_file_check
+    human_description:
+      en_US: "Array of Excel files (.xls or .xlsx). Tool checks the first file only."
+      zh_Hans: "Array of Excel files (.xls or .xlsx). Tool checks the first file only."
+      pt_BR: "Array of Excel files (.xls or .xlsx). Tool checks the first file only."
+      ja_JP: "Array of Excel files (.xls or .xlsx). Tool checks the first file only."
+    llm_description: "Excel file inputs (xls/xlsx)"
+    form: llm
+
+output_schema:
+  type: object
+  properties:
+    check_empty:
+      type: string
+      description: "'true' if the Excel file is empty, otherwise 'false'"
+extra:
+  python:
+    source: tools/uc03_empty_file_check.py
