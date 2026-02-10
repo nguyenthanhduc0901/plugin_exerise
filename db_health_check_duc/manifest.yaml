@@ -3,10 +3,10 @@ type: plugin
 author: ducthanhn
 name: db_health_check_duc
 label:
-  en_US: db_health_check_duc
-  ja_JP: db_health_check_duc
-  zh_Hans: db_health_check_duc
-  pt_BR: db_health_check_duc
+  en_US: Database Health Check
+  ja_JP: Database Health Check
+  zh_Hans: Database Health Check
+  pt_BR: Database Health Check
 description:
   en_US: Database Health Check
   ja_JP: Database Health Check

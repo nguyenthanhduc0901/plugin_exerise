@@ -1,10 +1,10 @@
 identity:
   author: "ducthanhn"
-  name: "ingestion_plugin_duc"
+  name: "ingestion_duc"
   label:
-    en_US: "CSV to PostgreSQL Ingestion"
+    en_US: Ingestion Data
   description:
-    en_US: "Ingestion CSV data to PostgreSQL database"
+    en_US: "Import CSV data to PostgreSQL database with duplicate detection"
   icon: "icon.svg"
 
 tools:

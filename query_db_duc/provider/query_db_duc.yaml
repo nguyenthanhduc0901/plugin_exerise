@@ -2,39 +2,13 @@ identity:
   author: "ducthanhn"
   name: "query_db_duc"
   label:
-    en_US: "Query Database"
+    en_US: "Query PostgreSQL Database"
   description:
-    en_US: "Execute SQL queries on PostgreSQL database"
+    en_US: "Execute SQL queries on PostgreSQL database and return results"
   icon: "icon.svg"
 
 tools:
   - tools/query_db_duc.yaml
-#         zh_Hans: "Client ID 用于认证请求到 example.com API。"
-#         pt_BR: "Client ID é usado para autenticar solicitações à API do example.com."
-#       label:
-#         zh_Hans: "Client ID"
-#         en_US: "Client ID"
-#     - name: "client_secret"
-#       type: "secret-input"
-#       required: true
-#       url: https://example.com/oauth/authorize
-#       placeholder:
-#         en_US: "Please input your Client Secret"
-#         zh_Hans: "请输入你的 Client Secret"
-#         pt_BR: "Insira seu Client Secret"
-#       help:
-#         en_US: "Client Secret is used to authenticate requests to the example.com API."
-#         zh_Hans: "Client Secret 用于认证请求到 example.com API。"
-#         pt_BR: "Client Secret é usado para autenticar solicitações à API do example.com."
-#       label:
-#         zh_Hans: "Client Secret"
-#         en_US: "Client Secret"
-#   credentials_schema:
-#     - name: "access_token"
-#       type: "secret-input"
-#       label:
-#         zh_Hans: "Access Token"
-#         en_US: "Access Token"
 
 tools:
   - tools/query_db_duc.yaml

@@ -5,8 +5,8 @@ identity:
     en_US: "CSV Validator"
 description:
   human:
-    en_US: "Validate CSV file format and content"
-  llm: "Validate CSV file format and content"
+    en_US: "Validate CSV file format and data integrity before database import"
+  llm: "Validate CSV file format and data integrity before database import"
 parameters:
   - name: csv_file
     type: file

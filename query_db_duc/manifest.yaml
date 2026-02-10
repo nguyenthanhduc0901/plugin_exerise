@@ -3,10 +3,10 @@ type: plugin
 author: ducthanhn
 name: query_db_duc
 label:
-  en_US: query_db_duc
-  ja_JP: query_db_duc
-  zh_Hans: query_db_duc
-  pt_BR: query_db_duc
+  en_US: Query PostgreSQL Database
+  ja_JP: Query PostgreSQL Database
+  zh_Hans: Query PostgreSQL Database
+  pt_BR: Query PostgreSQL Database
 description:
   en_US: Query Plugin
   ja_JP: Query Plugin

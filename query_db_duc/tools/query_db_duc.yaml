@@ -2,7 +2,7 @@ identity:
   name: "query_db_duc"
   author: "ducthanhn"
   label:
-    en_US: "Query Database"
+    en_US: "Query PostgreSQL Database"
 description:
   human:
     en_US: "Execute SQL query on PostgreSQL database"

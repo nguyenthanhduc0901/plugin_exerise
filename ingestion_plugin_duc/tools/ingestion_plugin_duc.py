@@ -47,7 +47,9 @@ class IngestionPluginDucTool(Tool):
             cursor.execute(create_table_query)
             
             # Insert data
+            total_rows = len(df)
             rows_inserted = 0
+            rows_skipped = 0
             for _, row in df.iterrows():
                 values = [str(v) if pd.notna(v) else None for v in row]
                 
@@ -69,12 +71,20 @@ class IngestionPluginDucTool(Tool):
                     insert_query = f'INSERT INTO employee ({column_names}) VALUES ({placeholders})'
                     cursor.execute(insert_query, values)
                     rows_inserted += 1
+                else:
+                    rows_skipped += 1
             
             conn.commit()
             cursor.close()
             conn.close()
-            
-            message = f"Successfully imported {rows_inserted} rows to employee table"
+
+            if rows_inserted == 0:
+                message = f"Data already exists in database. No new rows inserted (checked {total_rows} rows)."
+            else:
+                message = (
+                    f"Successfully imported {rows_inserted} new rows to employee table. "
+                    f"Skipped {rows_skipped} duplicate rows (checked {total_rows} rows)."
+                )
             yield self.create_text_message(message)
             
         except Exception as e:

@@ -1,17 +1,17 @@
 version: 0.0.1
 type: plugin
 author: ducthanhn
-name: ingestion_plugin_duc
+name: ingestion_duc
 label:
-  en_US: ingestion_plugin_duc
-  ja_JP: ingestion_plugin_duc
-  zh_Hans: ingestion_plugin_duc
-  pt_BR: ingestion_plugin_duc
+  en_US: Ingestion Data
+  ja_JP: Ingestion Data
+  zh_Hans: Ingestion Data
+  pt_BR: Ingestion Data
 description:
-  en_US: Ingestion Plugin
-  ja_JP: Ingestion Plugin
-  zh_Hans: Ingestion Plugin
-  pt_BR: Ingestion Plugin
+  en_US: Ingestion Data to PostgreSQL 
+  ja_JP: Ingestion Data to PostgreSQL 
+  zh_Hans: Ingestion Data to PostgreSQL 
+  pt_BR: Ingestion Data to PostgreSQL 
 icon: icon.svg
 icon_dark: icon-dark.svg
 resource:

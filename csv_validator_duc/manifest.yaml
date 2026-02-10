@@ -3,15 +3,15 @@ type: plugin
 author: ducthanhn
 name: csv_validator_duc
 label:
-  en_US: csv_validator_duc
-  ja_JP: csv_validator_duc
-  zh_Hans: csv_validator_duc
-  pt_BR: csv_validator_duc
+  en_US: CSV Validator
+  ja_JP: CSV Validator
+  zh_Hans: CSV Validator
+  pt_BR: CSV Validator
 description:
-  en_US: 'CSV Validator '
-  ja_JP: 'CSV Validator '
-  zh_Hans: 'CSV Validator '
-  pt_BR: 'CSV Validator '
+  en_US: 'Validate CSV file format and data integrity before database import'
+  ja_JP: 'Validate CSV file format and data integrity before database import'
+  zh_Hans: 'Validate CSV file format and data integrity before database import'
+  pt_BR: 'Validate CSV file format and data integrity before database import'
 icon: icon.svg
 icon_dark: icon-dark.svg
 resource:

@@ -4,7 +4,7 @@ identity:
   label:
     en_US: "Database Health Check"
   description:
-    en_US: "Check PostgreSQL database connection and health status"
+    en_US: "Check PostgreSQL database connection health and pass credentials to next node"
   icon: "icon.svg"
 
 tools:

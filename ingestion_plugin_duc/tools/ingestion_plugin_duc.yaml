@@ -1,8 +1,8 @@
 identity:
-  name: "ingestion_plugin_duc"
+  name: "ingestion_duc"
   author: "ducthanhn"
   label:
-    en_US: "CSV to PostgreSQL"
+    en_US: Ingestion Data
 description:
   human:
     en_US: "Import CSV file to PostgreSQL database"
