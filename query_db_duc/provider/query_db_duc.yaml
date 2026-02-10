@@ -10,8 +10,6 @@ identity:
 tools:
   - tools/query_db_duc.yaml
 
-tools:
-  - tools/query_db_duc.yaml
 extra:
   python:
     source: provider/query_db_duc.py
