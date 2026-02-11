@@ -1,0 +1,27 @@
+identity:
+  name: "uc03_file_check"
+  author: "ducthanhn"
+  label:
+    en_US: "Check Excel File Content"
+description:
+  human:
+    en_US: "Checks if uploaded files are Excel files (.xls/.xlsx) and contain data. Returns success='True' if valid, 'False' otherwise with error messages."
+  llm: "Validates if an Excel file (.xls/.xlsx) has content. Returns success='True' if data exists, 'False' otherwise and provides appropriate error messages."
+parameters:
+  - name: file_inputs
+    type: files
+    required: true
+    label:
+      en_US: "File Inputs"
+    human_description:
+      en_US: "Array of uploaded files to check. "
+    form: form
+output_schema:
+  type: object
+  properties:
+    success:
+      type: string
+      description: "Indicates if the file contains valid data ('True') or is empty/invalid ('False')."  
+extra:
+  python:
+    source: tools/uc03_check_file.py

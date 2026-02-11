@@ -1,0 +1,14 @@
+identity:
+  author: "ducthanhn"
+  name: "uc03_check_file"
+  label:
+    en_US: "uc03_check_file"
+  description:
+    en_US: "Checks if Excel files (.xls/.xlsx) contain data."
+  icon: "icon.svg"
+
+tools:
+  - tools/uc03_check_file.yaml
+extra:
+  python:
+    source: provider/uc03_check_file.py

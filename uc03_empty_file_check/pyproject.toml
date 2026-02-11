@@ -1,0 +1,11 @@
+[project]
+name = "uc03-empty-file-check"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "dify-plugin>=0.4.0,<0.7.0",
+    "openpyxl>=3.1.0,<3.2.0",
+    "xlrd>=2.0.1",
+]
