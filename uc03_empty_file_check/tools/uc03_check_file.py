@@ -26,8 +26,8 @@ ACCEPTED_FILE_EXTENSIONS = [".xls", ".xlsx"]
 STANDARD_HEADER = [
     "検査種別(部位)", "御指摘内容", "立会", "顧客", "製品", "編成", "処置",
     "不良ｺｰﾄﾞ", "不良分類", "修正分類", "切粉寸法", "個数", "多数粉フラグ",
-    "配電盤フラグ", "作業組", "実際の作業組", "運送情報", "check_chips",
-    "要約", "カウント", "check_quans"
+    "配電盤フラグ", "作業組", "実際の作業組", "運送情報", "",
+    "要約", "カウント"
 ]
 
 class Uc03FileCheck(Tool):
@@ -110,7 +110,6 @@ class Uc03FileCheck(Tool):
             is_standard_header = False
 
             if file_extension == ".xlsx":
-                # First, check the header to determine file type
                 workbook = openpyxl.load_workbook(
                     filename=BytesIO(blob),
                     read_only=True,
@@ -129,7 +128,6 @@ class Uc03FileCheck(Tool):
                 return self._check_xlsx_empty(blob, is_standard_header)
 
             elif file_extension == ".xls":
-                # First, check the header to determine file type
                 book = xlrd.open_workbook(file_contents=blob)
                 
                 if book.nsheets > 0:
